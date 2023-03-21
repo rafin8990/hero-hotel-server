@@ -18,6 +18,11 @@ const categoryCollection=client.db('hero-hotel').collection('category');
 
 async function run (){
     try{
+        app.get('/categories', async(req, res)=>{
+            const query={};
+            const result= await categoryCollection.find(query).toArray();
+            res.send(result)
+        })
 
     }
     finally{

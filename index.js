@@ -88,7 +88,8 @@ async function run() {
         });
 
         app.get('/allbooking', async (req, res) => {
-            const query = {};
+            const email=req.query.email;
+            const query = {email: email};
             const result = await bookingCollection.find(query).toArray();
             res.send(result)
         });
